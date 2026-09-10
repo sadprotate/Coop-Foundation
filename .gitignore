@@ -1,0 +1,8 @@
+game/.godot/
+server/node_modules/
+Windows/*.exe
+Windows/*.pck
+Windows/*.zip
+*.log
+.env
+test-results/
