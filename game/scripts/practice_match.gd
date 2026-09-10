@@ -214,6 +214,8 @@ func options_changed(net: Node, previous: Dictionary) -> void:
 	net.room["match"].total_rounds = int(rules.total_rounds)
 	if net.room.get("phase") == "ready_check":
 		net.room["match"].ready_time_left = maxf(0.0, float(net.room["match"].ready_time_left) + float(rules.ready_check_seconds) - float(previous.ready_check_seconds))
+	elif net.room["match"].phase == "countdown":
+		net.room["match"].countdown_time_left = maxf(0.0, float(net.room["match"].countdown_time_left) + float(rules.arena_start_countdown) - float(previous.arena_start_countdown))
 	elif net.room["match"].phase == "round":
 		net.room["match"].time_left = maxf(0.0, float(net.room["match"].time_left) + float(rules.round_duration) - float(previous.round_duration))
 	net.snapshot["match"] = net.room["match"].duplicate(true)

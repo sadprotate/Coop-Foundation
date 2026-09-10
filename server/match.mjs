@@ -167,6 +167,8 @@ export function updateMatchOptions(match, previous, next) {
   match.total_rounds = next.total_rounds;
   if (match.phase === 'ready_check') {
     match.ready_time_left = Math.max(0, match.ready_time_left + next.ready_check_seconds - previous.ready_check_seconds);
+  } else if (match.phase === 'countdown') {
+    match.countdown_time_left = Math.max(0, match.countdown_time_left + next.arena_start_countdown - previous.arena_start_countdown);
   } else if (match.phase === 'round') {
     match.time_left = Math.max(0, match.time_left + next.round_duration - previous.round_duration);
   }

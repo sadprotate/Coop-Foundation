@@ -497,7 +497,6 @@ func _create_actor(player: Dictionary) -> Dictionary:
 	var skin_material: StandardMaterial3D = _material(Color("e5dbcd"))
 	var dark_material: StandardMaterial3D = _material(Color("263844"))
 	_capsule(model, 0.26, 0.69, Vector3(0, 1.18, 0), body_material)
-	_box(model, Vector3(0.43, 0.22, 0.29), Vector3(0, 0.12, 0), limb_material)
 	_capsule(model, 0.095, 0.16, Vector3(0, 1.56, 0), skin_material)
 	_sphere(model, 0.20, Vector3(0, 1.77, 0), skin_material)
 	for eye_x: float in [-0.067, 0.067]:
