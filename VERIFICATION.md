@@ -1,4 +1,4 @@
-# Verification — Combat 06 (0.6.0 / protocol 4)
+# Verification — Base 01 (0.6.0 / protocol 4)
 
 Completed September 9, 2026 on Windows with Godot 4.6.1.
 
@@ -31,7 +31,7 @@ Evidence:
 - Movement/world/controls/solo: test-results/focused06-20260909-132608
 - Actual multiplayer and scoreboard captures: test-results/match05-20260909-132631
 - Scoreboard derivation: work/scoreboard06.log
-- Export/startup/normal Quit: work/combat06-export.log and work/combat06-release-*.log
+- Export/startup/normal Quit: work/Base01-export.log and work/Base01-release-*.log
 
 Audio remains the original tested music/effects from Version 0.5; no assets were replaced. Source tests and local multiplayer checks do not establish connectivity or latency from separate homes. The sandbox's known root-certificate diagnostic remains; final release checks have no script or cleanup errors.
 

@@ -95,7 +95,7 @@ static func _wall(parent: Node3D, at: Vector3, sideways: bool, stone: Material, 
 	_box(wall, Vector3(38, 3.7, 1.25), Vector3(0, 1.85, 0), stone)
 	_box(wall, Vector3(38, 0.25, 1.5), Vector3(0, 3.7, 0), trim)
 	for x in range(-18, 19, 2):
-		_box(wall, Vector3(1.05, 0.8, 1.4), Vector3(x, 4.2, 0), trim)
+		_box(wall, Vector3(1.05, 0.1, 1.4), Vector3(x, 4.2, 0), trim)
 	for x: float in [-14.0, -7.0, 0.0, 7.0, 14.0]:
 		_box(wall, Vector3(0.75, 3.85, 1.85), Vector3(x, 1.93, 0), trim)
 		_box(wall, Vector3(0.035, 2.9, 0.016), Vector3(x + 0.42, 1.7, 0.636), stone)
@@ -106,7 +106,7 @@ static func _tower(parent: Node3D, at: Vector3, stone: Material, trim: Material)
 	_cylinder(parent, 2.45, 2.45, 0.42, at + Vector3(0, 6.2, 0), trim, 12)
 	for index in range(10):
 		var angle: float = TAU * index / 10.0
-		var block := _box(parent, Vector3(0.8, 0.9, 0.65), at + Vector3(sin(angle) * 2.13, 6.7, cos(angle) * 2.13), trim)
+		var block := _box(parent, Vector3(0.1, 0.9, 0.65), at + Vector3(sin(angle) * 2.13, 6.7, cos(angle) * 2.13), trim)
 		block.rotation.y = angle
 
 
@@ -116,7 +116,7 @@ static func _build_keep(parent: Node3D, stone: Material, trim: Material) -> void
 	_box(parent, Vector3(12, 7.5, 7), Vector3(0, 3.75, -26), stone)
 	_box(parent, Vector3(12.5, 0.4, 7.5), Vector3(0, 7.5, -26), trim)
 	for x: float in [-4.0, 0.0, 4.0]:
-		_box(parent, Vector3(0.8, 2.1, 0.08), Vector3(x, 5.4, -22.45), dark)
+		_box(parent, Vector3(0.1, 2.1, 0.08), Vector3(x, 5.4, -22.45), dark)
 	for side: float in [-1.0, 1.0]:
 		_cylinder(parent, 1.65, 1.85, 10.2, Vector3(side * 6.5, 5.1, -24.5), trim, 10)
 		_cylinder(parent, 0.0, 2.15, 3.8, Vector3(side * 6.5, 12.0, -24.5), roof, 10)
@@ -180,7 +180,7 @@ static func _old_man() -> Node3D:
 		_box(elder, Vector3(0.18, 0.14, 0.29), Vector3(side * 0.19, 0.08, 0.08), dark)
 		var sleeve := _cylinder(elder, 0.15, 0.11, 0.56, Vector3(side * 0.34, 1.04, 0.07), robe_light, 10)
 		sleeve.rotation.z = side * 0.20
-		_sphere(elder, 0.09, Vector3(side * 0.40, 0.81, 0.10), skin)
+		_sphere(elder, 0.09, Vector3(side * 0.40, 0.11, 0.10), skin)
 	_sphere(elder, 0.065, Vector3(0, 1.62, 0.27), skin)
 	_box(elder, Vector3(0.065, 0.7, 0.04), Vector3(0, 0.59, 0.36), gold, false)
 	_cylinder(elder, 0.045, 0.05, 2.22, Vector3(0.51, 1.11, 0.12), wood, 8)

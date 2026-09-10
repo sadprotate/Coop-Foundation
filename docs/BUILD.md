@@ -1,4 +1,4 @@
-# Run and build Combat 06
+# Run and build Base 01
 
 Version 0.6 update: crouch bends backward at the waist without changing model scale; Tab holds a live player scoreboard (town: names/ping; arena: rounds won, round KO and ping). Rankings use rounds won then round KO, with team totals in 2v2. The main menu is Singleplayer / Multiplayer / Settings / Quit; Multiplayer offers Host / Join / WSS Server / Back. Server version 0.6.0 supplies measured ping while keeping protocol 4 compatibility with 0.5. Verify `version: "0.6.0"` at `/health` after updating the existing service.
 
@@ -41,4 +41,4 @@ See [VERIFICATION.md](../VERIFICATION.md) for actual results, distinct from thes
 
 Keep scripts, scenes, original audio assets, project settings, export preset, lockfile, tests and licenses in source control. Exclude `.godot`, `node_modules`, generated builds and test profiles. Deploy the complete `server` folder as one persistent process; friends receive the Windows ZIP.
 
-Combat 06 requires a coordinated client/server update to protocol 4. Include the new `match.mjs` as well as `combat.mjs`. Keep the same public service URL and saved settings. See [HOSTING.md](HOSTING.md).
+Base 01 requires a coordinated client/server update to protocol 4. Include the new `match.mjs` as well as `combat.mjs`. Keep the same public service URL and saved settings. See [HOSTING.md](HOSTING.md).

@@ -28,7 +28,7 @@ const FIELDS := [
 	["sword_attack_recovery", "Sword attack recovery", 0.2, 5, 0.1, 1.2, " s"],
 	["sword_knockback", "Sword knockback", 0, 20, 0.5, 4, ""],
 	["sword_blockable", "Sword blockable", 0, 1, 1, 1, ""],
-	["sword_block_damage_reduction", "Sword block damage reduction", 0, 1, 0.05, 0.8, ""],
+	["sword_block_damage_reduction", "Sword block damage reduction", 0, 1, 0.05, 0.1, ""],
 	["sword_movement_speed_multiplier", "Sword movement speed", 0.2, 2, 0.05, 1, " ×"],
 	["sword_jump_critical_enabled", "Sword jump critical", 0, 1, 1, 1, ""],
 	["sword_critical_damage_multiplier", "Sword critical multiplier", 1, 5, 0.1, 2, " ×"],
@@ -63,5 +63,5 @@ const FIELDS := [
 	["fall_damage_threshold", "Safe fall distance", 0, 50, 0.25, 4, " m"],
 	["fall_damage_multiplier", "Damage per extra fall metre", 0, 100, 1, 10, " HP/m"],
 	["camera_fov", "Camera field of view", 35, 90, 1, 55, "°"], ["camera_distance", "Camera distance", 8, 20, 0.1, 11.5, " m"], ["camera_height", "Camera height", 5, 30, 0.1, 11, " m"], ["camera_vertical_offset", "Camera vertical offset", -3, 8, 0.1, 1, " m"],
-	["camera_min_pitch", "Camera minimum pitch", 20, 85, 1, 35, "°"], ["camera_max_pitch", "Camera maximum pitch", 20, 89, 1, 75, "°"], ["camera_rotation_speed", "Camera rotation speed", 0.1, 5, 0.05, 1, " ×"], ["camera_smoothing", "Camera smoothing", 0, 1, 0.05, 0.85, " ×"], ["camera_follow_speed", "Camera follow speed", 1, 30, 0.5, 16, " ×"], ["camera_zoom_min", "Camera zoom minimum", 4, 20, 0.1, 8, " m"], ["camera_zoom_max", "Camera zoom maximum", 10, 40, 0.1, 20, " m"],
+	["camera_min_pitch", "Camera minimum pitch", 20, 85, 1, 35, "°"], ["camera_max_pitch", "Camera maximum pitch", 20, 89, 1, 75, "°"], ["camera_rotation_speed", "Camera rotation speed", 0.1, 5, 0.05, 1, " ×"], ["camera_smoothing", "Camera smoothing", 0, 1, 0.05, 0.15, " ×"], ["camera_follow_speed", "Camera follow speed", 1, 30, 0.5, 16, " ×"], ["camera_zoom_min", "Camera zoom minimum", 4, 20, 0.1, 8, " m"], ["camera_zoom_max", "Camera zoom maximum", 10, 40, 0.1, 20, " m"],
 ]

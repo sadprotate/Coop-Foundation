@@ -25,7 +25,7 @@ func _run() -> void:
 	sound.set_context("game")
 	var arena: AudioStreamPlayer = sound.music_player
 	check(arena != menu and arena.playing, "game starts its own track")
-	await create_timer(0.8).timeout
+	await create_timer(0.1).timeout
 	check(not menu.playing and arena.playing and is_equal_approx(arena.volume_db, -3.0), "crossfade settles and stops old track")
 	var before: float = arena.get_playback_position()
 	sound.set_context("game")
@@ -34,7 +34,7 @@ func _run() -> void:
 	sound.set_context("menu")
 	await create_timer(0.1).timeout
 	sound.set_context("game")
-	await create_timer(0.8).timeout
+	await create_timer(0.1).timeout
 	check(arena.playing and not menu.playing, "rapid navigation cancels obsolete crossfade")
 	var old_master: float = prefs.master
 	var old_music: float = prefs.music

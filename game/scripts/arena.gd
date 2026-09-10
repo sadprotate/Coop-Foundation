@@ -102,8 +102,8 @@ func _draw_pad(pad: Dictionary, index: int) -> void:
 	var active: bool = bool(pad.get("active", false))
 	var ring_color: Color = CYAN if active else Color("577081")
 	if active:
-		draw_circle(center, 51.0, Color(0.38, 0.90, 0.83, 0.035))
-		draw_circle(center, 44.0, Color(0.38, 0.90, 0.83, 0.065))
+		draw_circle(center, 51.0, Color(0.38, 0.90, 0.13, 0.035))
+		draw_circle(center, 44.0, Color(0.38, 0.90, 0.13, 0.065))
 	draw_circle(center, 36.0, Color("183b3e") if active else Color("192b39"))
 	draw_arc(center, 36.0, 0, TAU, 64, ring_color, 2.0, true)
 	draw_arc(center, 30.0, -PI * 0.75, PI * 0.75, 48, Color(ring_color, 0.22), 1.0, true)

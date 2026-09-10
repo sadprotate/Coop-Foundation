@@ -1,8 +1,8 @@
-# Update the shared server for Combat 06
+# Update the shared server for Base 01
 
 Version 0.6 update: crouch bends backward at the waist without changing model scale; Tab holds a live player scoreboard (town: names/ping; arena: rounds won, round KO and ping). Rankings use rounds won then round KO, with team totals in 2v2. The main menu is Singleplayer / Multiplayer / Settings / Quit; Multiplayer offers Host / Join / WSS Server / Back. Server version 0.6.0 supplies measured ping while keeping protocol 4 compatibility with 0.5. Verify `version: "0.6.0"` at `/health` after updating the existing service.
 
-Combat 06 requires **protocol 4**. Update the existing shared service; keep its server address and current hosting arrangement. This local build does not deploy or modify the live service.
+Base 01 requires **protocol 4**. Update the existing shared service; keep its server address and current hosting arrangement. This local build does not deploy or modify the live service.
 
 ## Update an existing service
 
@@ -10,7 +10,7 @@ Combat 06 requires **protocol 4**. Update the existing shared service; keep its 
 2. Keep the service root pointed to that folder. The build command remains `npm ci`; the start command remains `npm start`. Use Node.js 22 or newer. The server honors the hosting platform's `PORT` and listens on `0.0.0.0`.
 3. Deploy between play sessions. Replacing the process ends existing rooms; create a new room afterward.
 4. Open `https://YOUR-EXISTING-SERVICE/health`. Verify `"ok": true` and **`"protocol": 4`**. A protocol 3 response is the previous server.
-5. Give every player **CoopFoundation-Combat06-Windows.zip** and use the same `wss://YOUR-EXISTING-SERVICE/ws` address. Update everyone together; earlier client versions are incompatible.
+5. Give every player **CoopFoundation-Base01-Windows.zip** and use the same `wss://YOUR-EXISTING-SERVICE/ws` address. Update everyone together; earlier client versions are incompatible.
 
 No new dependency, database, account system, paid feature or second service is required by the game update. Your hosting provider's existing plan, availability and usage limits still apply. Check the provider's dashboard before changing any paid plan. For Render, consult its [service documentation](https://render.com/docs/web-services), [WebSocket documentation](https://render.com/docs/websocket), [free-service limitations](https://render.com/docs/free) and [current pricing](https://render.com/pricing).
 

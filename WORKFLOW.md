@@ -1,6 +1,6 @@
-# Co-op Foundation 0.8.1 workflow
+# Co-op Foundation 0.1 workflow
 
-This copy is the working base for version 0.8.1. The original desktop folder remains unchanged.
+This copy is the working base for version 0.1. The original desktop folder remains unchanged.
 
 ## Save a version
 
@@ -10,7 +10,7 @@ From this folder, review the changed files, run the relevant Godot or server che
 git status
 git add .
 git commit -m "Describe the change"
-git tag -a v0.8.1-<milestone> -m "Milestone description"
+git tag -a v0.1-<milestone> -m "Milestone description"
 ```
 
 Each commit is a rollback point. Before a large experiment, create a branch:

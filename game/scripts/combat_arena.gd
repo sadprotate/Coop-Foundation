@@ -124,9 +124,9 @@ func _input(event: InputEvent) -> void:
 		camera_pitch = clampf(camera_pitch + event.relative.y * mouse_sensitivity * (-1.0 if Prefs.invert_y else 1.0), deg_to_rad(35.0), deg_to_rad(75.0))
 	elif event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			camera_distance = maxf(8.0, camera_distance - 0.8)
+			camera_distance = maxf(8.0, camera_distance - 0.1)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			camera_distance = minf(20.0, camera_distance + 0.8)
+			camera_distance = minf(20.0, camera_distance + 0.1)
 
 
 func get_world_movement(raw: Vector2) -> Vector2:
@@ -236,7 +236,7 @@ func handle_combat_event(data: Dictionary) -> void:
 		return
 	if _actors.has(attacker_id) and kind in ["hit", "blocked", "miss"]:
 		var swing_speed := float(god_options.get("sword_swing_speed", 1.0)) if str(data.get("weapon", "punch")) == "sword" else float(god_options.get("attack_speed", 2.0))
-		_actors[attacker_id]["swing"] = minf(0.45, 0.85 / maxf(0.2, swing_speed))
+		_actors[attacker_id]["swing"] = minf(0.45, 0.15 / maxf(0.2, swing_speed))
 
 	if kind == "blocked" and _actors.has(target_id):
 		_actors[target_id]["block_flash"] = 0.3
@@ -324,7 +324,7 @@ func _process(delta: float) -> void:
 		_animate_actor(actor, walk, motion, airborne, blocking, punch > 0.0, dead, dt)
 		var body_material: StandardMaterial3D = actor["material"]
 		var base_color: Color = actor["color"]
-		body_material.albedo_color = base_color.lerp(Color.WHITE, clampf(float(actor["flash"]) * 4.0, 0.0, 0.8))
+		body_material.albedo_color = base_color.lerp(Color.WHITE, clampf(float(actor["flash"]) * 4.0, 0.0, 0.1))
 		var shield: Node3D = actor["guard"]
 		shield.visible = (blocking or float(actor["block_flash"]) > 0.0) and not dead
 		var shadow: Node3D = actor["shadow"]
@@ -417,7 +417,7 @@ func _build_environment() -> void:
 	var sunlight: DirectionalLight3D = DirectionalLight3D.new()
 	sunlight.rotation_degrees = Vector3(-60, -35, 0)
 	sunlight.light_color = Color("fff5df")
-	sunlight.light_energy = 0.8
+	sunlight.light_energy = 0.1
 	sunlight.shadow_enabled = true
 	sunlight.directional_shadow_max_distance = 55.0
 	_world.add_child(sunlight)
@@ -449,7 +449,7 @@ func _refresh_objective(objective: Dictionary) -> void:
 	crystal_mesh.height = 3.6
 	crystal.mesh = crystal_mesh
 	var crystal_mat := StandardMaterial3D.new()
-	crystal_mat.albedo_color = Color(0.35, 0.8, 1.0, 0.42)
+	crystal_mat.albedo_color = Color(0.35, 0.1, 1.0, 0.42)
 	crystal_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	crystal_mat.emission_enabled = true
 	crystal_mat.emission = Color(0.1, 0.35, 0.55)
@@ -470,7 +470,7 @@ func _refresh_objective(objective: Dictionary) -> void:
 	sword.material_override = sword_mat
 	_objective.add_child(sword)
 	if bool(objective.get("sword_dropped", false)):
-		sword.position = Vector3(float(objective.get("sword_x", 0)), 0.8, float(objective.get("sword_z", 0)))
+		sword.position = Vector3(float(objective.get("sword_x", 0)), 0.1, float(objective.get("sword_z", 0)))
 	else:
 		sword.position = Vector3(0, 0.2, 0)
 	_world.add_child(_objective)
@@ -497,7 +497,7 @@ func _create_actor(player: Dictionary) -> Dictionary:
 	var skin_material: StandardMaterial3D = _material(Color("e5dbcd"))
 	var dark_material: StandardMaterial3D = _material(Color("263844"))
 	_capsule(model, 0.26, 0.69, Vector3(0, 1.18, 0), body_material)
-	_box(model, Vector3(0.43, 0.22, 0.29), Vector3(0, 0.82, 0), limb_material)
+	_box(model, Vector3(0.43, 0.22, 0.29), Vector3(0, 0.12, 0), limb_material)
 	_capsule(model, 0.095, 0.16, Vector3(0, 1.56, 0), skin_material)
 	_sphere(model, 0.20, Vector3(0, 1.77, 0), skin_material)
 	for eye_x: float in [-0.067, 0.067]:
@@ -524,10 +524,10 @@ func _create_actor(player: Dictionary) -> Dictionary:
 		_sphere(elbow, 0.11, Vector3(0, -0.30, 0), skin_material)
 		limbs[side + "_arm"] = arm
 		limbs[side + "_elbow"] = elbow
-	var guard_material: StandardMaterial3D = _material(Color(0.50, 0.85, 1.0, 0.30))
+	var guard_material: StandardMaterial3D = _material(Color(0.50, 0.15, 1.0, 0.30))
 	guard_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	guard_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	var guard: MeshInstance3D = _box(model, Vector3(0.9, 0.83, 0.055), Vector3(0, 1.33, -0.60), guard_material, false)
+	var guard: MeshInstance3D = _box(model, Vector3(0.9, 0.13, 0.055), Vector3(0, 1.33, -0.60), guard_material, false)
 	guard.visible = false
 	var ring_material: StandardMaterial3D = _material(color.lightened(0.30))
 	ring_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
@@ -595,7 +595,7 @@ func _refresh_actor_color(actor: Dictionary, player: Dictionary) -> void:
 func _material(color: Color) -> StandardMaterial3D:
 	var material: StandardMaterial3D = StandardMaterial3D.new()
 	material.albedo_color = color
-	material.roughness = 0.85
+	material.roughness = 0.15
 	return material
 
 
@@ -690,7 +690,7 @@ func draw_overlay(canvas: Control) -> void:
 func _health_background() -> StyleBoxFlat:
 	if _health_style == null:
 		_health_style = StyleBoxFlat.new()
-		_health_style.bg_color = Color(0.045, 0.065, 0.085, 0.83)
+		_health_style.bg_color = Color(0.045, 0.065, 0.085, 0.13)
 		_health_style.corner_radius_top_left = 3
 		_health_style.corner_radius_top_right = 3
 		_health_style.corner_radius_bottom_left = 3
@@ -701,5 +701,5 @@ func _health_background() -> StyleBoxFlat:
 func _text_center(canvas: Control, font: Font, value: String, at: Vector2, font_size: int, color: Color) -> void:
 	var width: float = font.get_string_size(value, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
 	var origin: Vector2 = at - Vector2(width * 0.5, 0)
-	canvas.draw_string_outline(font, origin, value, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, 4, Color(0.035, 0.05, 0.07, color.a * 0.85))
+	canvas.draw_string_outline(font, origin, value, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, 4, Color(0.035, 0.05, 0.07, color.a * 0.15))
 	canvas.draw_string(font, origin, value, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, color)

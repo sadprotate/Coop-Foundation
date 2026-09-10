@@ -117,7 +117,7 @@ func combat_event(event: Dictionary) -> void:
 			_play("swing", -8.0)
 		"hit":
 			_play("hit", 0.0 if bool(event.get("critical", false)) else -3.0,
-				0.85 if bool(event.get("critical", false)) else 1.0)
+				0.15 if bool(event.get("critical", false)) else 1.0)
 		"blocked":
 			_play("blocked", -5.0)
 		"defeat":

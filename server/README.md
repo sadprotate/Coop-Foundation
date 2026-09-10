@@ -1,4 +1,4 @@
-# Combat 06 authoritative server
+# Base 01 authoritative server
 
 Version 0.6 update: crouch bends backward at the waist without changing model scale; Tab holds a live player scoreboard (town: names/ping; arena: rounds won, round KO and ping). Rankings use rounds won then round KO, with team totals in 2v2. The main menu is Singleplayer / Multiplayer / Settings / Quit; Multiplayer offers Host / Join / WSS Server / Back. Server version 0.6.0 supplies measured ping while keeping protocol 4 compatibility with 0.5. Verify `version: "0.6.0"` at `/health` after updating the existing service.
 
@@ -13,7 +13,7 @@ npm start
 
 Local client address: `ws://127.0.0.1:8787/ws`. Health: `http://127.0.0.1:8787/health`. Run `npm test` for pure rules and real WebSocket integration tests.
 
-Update an existing public service using this complete folder, including **combat.mjs and match.mjs**, the lockfile and the updated Dockerfile. Keep its existing root directory, `npm ci` build command, `npm start` command and public URL. Deploy between sessions and confirm `/health` reports `protocol: 4`. All clients must update to Combat 06 together; protocol 3 is incompatible. This source delivery does not deploy the live service. See [HOSTING.md](../docs/HOSTING.md).
+Update an existing public service using this complete folder, including **combat.mjs and match.mjs**, the lockfile and the updated Dockerfile. Keep its existing root directory, `npm ci` build command, `npm start` command and public URL. Deploy between sessions and confirm `/health` reports `protocol: 4`. All clients must update to Base 01 together; protocol 3 is incompatible. This source delivery does not deploy the live service. See [HOSTING.md](../docs/HOSTING.md).
 
 One process/instance owns the in-memory rooms. The hosting platform/reverse proxy supplies TLS and forwards HTTP and WebSocket upgrades. Both `/ws` and `/` accept WebSockets. Empty rooms and process restarts discard room state; there is no database or automatic session recovery.
 

@@ -239,7 +239,7 @@ func _clear(next_page: String, with_shell: bool = true) -> void:
 	shell.add_child(header)
 	_label(header, "◈", 30, ACCENT)
 	_label(header, "CO-OP  /  FOUNDATION", 21, TEXT).size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_label(header, "COMBAT 06     •     UP TO 4 PLAYERS", 14, MUTED)
+	_label(header, "Base 01     •     UP TO 4 PLAYERS", 14, MUTED)
 	var line := HSeparator.new()
 	shell.add_child(line)
 	var scroller := ScrollContainer.new()

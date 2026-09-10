@@ -1,4 +1,4 @@
-# Co-op Foundation — Combat 06
+# Co-op Foundation — Base 01
 
 Version 0.6 keeps the successful 0.5 game flow and adds a backward hip-bend crouch with unchanged proportions, a hold-Tab multiplayer scoreboard, and a four-choice main menu: **Singleplayer, Multiplayer, Settings, Quit**. Multiplayer contains **Host, Join, WSS Server, Back**. The server editor validates and saves the address; Back without Save keeps the previous address.
 
@@ -8,7 +8,7 @@ A 3D combat sandbox for one to four Windows players. Enter a safe medieval town,
 
 ## Play
 
-Extract **CoopFoundation-Combat06-Windows.zip** into a new folder and run **CoopFoundation.exe**. Godot and Node.js are not needed by players. This release is **0.6.0**, using **protocol 4**. Existing saved names, server addresses, keybindings and personal settings carry over on this PC.
+Extract **CoopFoundation-Base01-Windows.zip** into a new folder and run **CoopFoundation.exe**. Godot and Node.js are not needed by players. This release is **0.6.0**, using **protocol 4**. Existing saved names, server addresses, keybindings and personal settings carry over on this PC.
 
 **Play single-player** starts an offline town immediately. To play with friends, use the same shared server address; one player creates a room and others join its six-character code. Everyone enters the same town. The room code and team settings are inside Options, also accessible through the Old Man.
 
@@ -42,7 +42,7 @@ Single-player has no bots or damage targets. It follows the same ready/round/vic
 
 ## Server update required
 
-Combat 06 requires its included **protocol 4 server**. Update the existing service with the complete `server` folder, including **combat.mjs** and **match.mjs**, then redeploy. Keep the same server address. `/health` must show `protocol: 4`; Combat 03/04 clients and protocol 3 servers are incompatible with this release. All players should update together. [Hosting/update instructions](docs/HOSTING.md).
+Base 01 requires its included **protocol 4 server**. Update the existing service with the complete `server` folder, including **combat.mjs** and **match.mjs**, then redeploy. Keep the same server address. `/health` must show `protocol: 4`; Combat 03/04 clients and protocol 3 servers are incompatible with this release. All players should update together. [Hosting/update instructions](docs/HOSTING.md).
 
 Rooms hold four including the host. Joining is allowed in town. A departure during battle returns the remaining group to town; host ownership transfers if needed. A server restart erases rooms. This task builds the update locally; it does not deploy the live service.
 

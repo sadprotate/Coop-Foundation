@@ -138,7 +138,7 @@ test('shared God options sanitize and apply live to health, cooldown, movement, 
   const options = sanitizeGodOptions(DEFAULT_GOD_OPTIONS, {
     god_mode: true, attack_speed: 10, attack_damage: 33.5, move_speed: 20,
     jump_speed: 2, jump_height: 4, max_jumps: 2.6, max_health: 250.4,
-    attack_range: 5, air_damage_multiplier: 4, block_speed_multiplier: 0.8, respawn_seconds: 0.5,
+    attack_range: 5, air_damage_multiplier: 4, block_speed_multiplier: 0.1, respawn_seconds: 0.5,
     ignored: 123
   });
   assert.equal(validGodOptionsPatch(options), true);

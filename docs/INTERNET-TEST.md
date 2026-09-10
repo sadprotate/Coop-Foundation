@@ -1,8 +1,8 @@
-# Combat 06 four-player internet acceptance test
+# Base 01 four-player internet acceptance test
 
 Version 0.6 update: crouch bends backward at the waist without changing model scale; Tab holds a live player scoreboard (town: names/ping; arena: rounds won, round KO and ping). Rankings use rounds won then round KO, with team totals in 2v2. The main menu is Singleplayer / Multiplayer / Settings / Quit; Multiplayer offers Host / Join / WSS Server / Back. Server version 0.6.0 supplies measured ping while keeping protocol 4 compatibility with 0.5. Verify `version: "0.6.0"` at `/health` after updating the existing service.
 
-Use four Windows PCs running Combat 06 and a deployed protocol 4 server. At least one PC must be on a different internet connection (another home or a phone hotspot with home Wi-Fi disconnected). Four local windows or PCs behind one router are useful checks but do not establish separate-home play.
+Use four Windows PCs running Base 01 and a deployed protocol 4 server. At least one PC must be on a different internet connection (another home or a phone hotspot with home Wi-Fi disconnected). Four local windows or PCs behind one router are useful checks but do not establish separate-home play.
 
 Open the public HTTPS `/health` page and confirm `ok: true`, `protocol: 4`. All players use the same public `wss://` server address. Record the date, build name, deployed commit/server URL and each PC's Windows/network details without publishing room codes. Leave results unmarked until players actually try them.
 

@@ -186,7 +186,7 @@ func host_sequence() -> void:
 	if not await until(func(): return health(victim_id) == 70, "Airborne punch deals exactly 20"):
 		finish(false, "Critical damage")
 		return
-	await create_timer(0.8).timeout
+	await create_timer(0.1).timeout
 	issue("front_block", formation({}, {"block": true, "yaw": PI / 2.0}))
 	await until(func(): return bool(player(victim_id).get("block", false)), "Defender blocks toward attacker")
 	issue("front_block_hit", formation({"punch": true}, {"block": true, "yaw": PI / 2.0}))
