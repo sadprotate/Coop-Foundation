@@ -45,7 +45,7 @@ func _cancel_ready(net: Node, message: String = "Battle cancelled. Everyone must
 func _begin_battle(net: Node) -> void:
 	var rules: Dictionary = net.god_options()
 	var state: Dictionary = _empty_match(rules)
-	state.phase = "round"
+	state.phase = "countdown" if float(rules.get("arena_start_countdown", 10)) > 0.0 else "round"
 	state.countdown_time_left = float(rules.get("arena_start_countdown", 10))
 	state.fight_time_left = 0.0
 	if state.countdown_time_left <= 0.0:

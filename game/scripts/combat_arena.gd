@@ -543,11 +543,6 @@ func _create_actor(player: Dictionary) -> Dictionary:
 	ring.scale.y = 0.25
 	ring.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	root.add_child(ring)
-	# This marker rotates with the character and shows the centre of its punch cone.
-	_box(ring, Vector3(0.045, 0.04, 0.40), Vector3(0, 0.04, -0.91), ring_material, false)
-	for sign_x: float in [-1.0, 1.0]:
-		var arrow: MeshInstance3D = _box(ring, Vector3(0.045, 0.04, 0.23), Vector3(sign_x * 0.075, 0.04, -1.035), ring_material, false)
-		arrow.rotation.y = -sign_x * PI / 4.0
 	var shadow_material: StandardMaterial3D = _material(Color(0.09, 0.13, 0.16, 0.26))
 	shadow_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	shadow_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
