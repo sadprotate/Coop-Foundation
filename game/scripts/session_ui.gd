@@ -69,9 +69,9 @@ func _process(delta: float) -> void:
 		var objective: Dictionary = latest.get("objective", latest.get("match", {}).get("objective", {}))
 		var player: Dictionary = Net.local_player()
 		var near_sword: bool = bool(objective.get("enabled", false)) and bool(objective.get("sword_accessible", false)) and str(objective.get("sword_owner", "")).is_empty() and Vector2(float(player.get("x", 0)) - float(objective.get("sword_x", 0)), float(player.get("z", 0)) - float(objective.get("sword_z", 0))).length() <= float(Net.god_options().get("sword_pickup_range", 2.2))
-		prompt.text = "F to Pick Up Sword" if near_sword and not Net.in_town() else "F  —  Talk"
+		var interact_label := Prefs.binding_label("interact")
+		prompt.text = "%s  —  Pick Up Sword" % interact_label if near_sword and not Net.in_town() else "%s  —  Talk" % interact_label
 		prompt.visible = not is_modal() and ((Net.in_town() and Net.room.get("phase") == "lobby" and Net.near_old_man()) or near_sword) and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
-		prompt.text = Prefs.binding_label("interact") + " — Talk"
 
 func show_notice(message: String) -> void:
 	if is_instance_valid(notice_label):
